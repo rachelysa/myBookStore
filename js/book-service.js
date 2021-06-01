@@ -3,7 +3,8 @@ var gBooks = _createBooks();
 var gSortedBy = 'name';
 var gBooksName = ['aaa', 'bbb', 'ccc', 'ddd', 'eee', 'fff', 'ggg', 'hhh', 'iii', 'jjj'];
 const PAGE_SIZE = 5;
-var gPageIdx = 0
+var gPageIdx = 0;
+var gSortDiff = 1;
 
 function deleteBook(bookId) {
     var bookIdx = getBookIdx(bookId);
@@ -53,13 +54,13 @@ function getBooks() {
     if (gSortedBy === 'name') {
         gBooks.sort(function (a, b) {
 
-            return (a.name > b.name) ? 1 : -1
+            return (a.name > b.name) ? 1*gSortDiff : -1*gSortDiff
         });
     }
     else {
         gBooks.sort(function (a, b) {
 
-            return (a.price - b.price)
+            return (a.price - b.price)*gSortDiff
         });
     }
 
@@ -69,6 +70,7 @@ function getBooks() {
 
 function changeSort(sortBy) {
     gSortedBy = sortBy;
+    gSortDiff=gSortDiff*-1;
 }
 function changePage(diff) {
 

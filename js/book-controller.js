@@ -50,7 +50,7 @@ function onAddBook() {
 
 function onUpdateBook(bookId) {
 
-    var newPrice = +prompt('price?')
+    var newPrice =(getLang()==='en' )?+prompt('add a new price'):+prompt('הכנס מחיר חדש')
     updateBook(bookId, newPrice)
     renderBooks();
     doTrans();

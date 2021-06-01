@@ -67,6 +67,10 @@ var gTrans = {
         en: 'read details',
         he: 'פרטי הספר'
     },
+    'update-book': {
+        en: 'add new price',
+        he: 'הכנס מחיר חדש'
+    }
 }
 
 var gCurrLang = 'en';
@@ -99,7 +103,7 @@ function doTrans() {
         if (el.nodeName === 'INPUT') el.placeholder = txt;
         else el.innerText = txt
         //    ITP: support placeholder  
-            
+
         // console.log('el.dataset', el.dataset.trans);       
     })
 }
@@ -107,7 +111,9 @@ function doTrans() {
 function setLang(lang) {
     gCurrLang = lang;
 }
-
+function getLang(){
+    return gCurrLang;
+}
 function formatNumOlder(num) {
     return num.toLocaleString('es')
 }
@@ -117,8 +123,8 @@ function formatNum(num) {
 }
 
 function formatCurrency(num) {
-    return (gCurrLang==='he')? new Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' }).format(num):
-    new Intl.NumberFormat(gCurrLang, { style: 'currency', currency: 'USD' }).format(num);
+    return (gCurrLang === 'he') ? new Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' }).format(num) :
+        new Intl.NumberFormat(gCurrLang, { style: 'currency', currency: 'USD' }).format(num);
 }
 
 function formatDate(time) {

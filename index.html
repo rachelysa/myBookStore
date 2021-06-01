@@ -62,7 +62,26 @@
           </div>
         </div>
       </div>
+      <div class="modal update-modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" data-trans="update">Modal title</h5>
+            
+            </div>
+            <div class="modal-body">
+            <input data-trans="update-book" name="bookPrice" class="update-input" type="text" placeholder="enter new price"
+                autocomplete="off" /><br>
 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn my-btn" data-bs-dismiss="modal" onclick="closeAddModal()" data-trans="close">Close</button>
+              
+              <button type="button" class=" my-btn" onclick="onAddBook()" data-trans="add-book-btn">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="modal details-modal" tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content">
