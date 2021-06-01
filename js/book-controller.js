@@ -42,8 +42,8 @@ function onDeleteBook(bookId) {
 
 function onAddBook() {
     var elNameAndPrice = document.querySelectorAll('.add-input');
-    addBook(elNameAndPrice[0].value, elNameAndPrice[1].value)
-    document.querySelector('.add').hidden = true
+    if(elNameAndPrice[0].value||elNameAndPrice[1].value) addBook(elNameAndPrice[0].value, elNameAndPrice[1].value)
+    document.querySelector('.modal').style.display='none'
     renderBooks();
     doTrans();
 }
@@ -61,10 +61,16 @@ function onSortChange(sortBy) {
     renderBooks();
     doTrans();
 }
+function closeAddModal() {
+    var elModal = document.querySelector('.modal');
+    // elModal.hidden = false;
+    elModal.style.display='none'
+}
 
 function openAddModal() {
-    var elModal = document.querySelector('.add');
-    elModal.hidden = false;
+    var elModal = document.querySelector('.modal');
+    // elModal.hidden = false;
+    elModal.style.display='block'
 }
 
 function onReadBook(bookId) {
@@ -74,13 +80,20 @@ function onReadBook(bookId) {
     elModal.querySelector('h3').id = book.id;
     elModal.querySelector('h4').innerText += ': ' + book.name
     elModal.querySelector('p').innerText += ': ' + book.price
-    elModal.hidden = false;
+    elModal.style.display='block'
     elModal.querySelector('.rate-input').value = book.rate;
 
 }
 
 function onCloseModal() {
-    document.querySelector('.details-modal').hidden = true;
+    var elModal = document.querySelector('.details-modal');
+    // elModal.hidden = false;
+    elModal.querySelector('h3').innerText='id';
+
+    elModal.querySelector('h4').innerText='name'
+    elModal.querySelector('p').innerText ='price'
+    doTrans();
+    elModal.style.display='none'
     var elInput = document.querySelector('.rate-input');
     elInput.value = '0';
 }

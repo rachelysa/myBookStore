@@ -63,7 +63,10 @@ var gTrans = {
         en: 'close',
         he: 'סגור'
     },
-
+    read: {
+        en: 'read details',
+        he: 'פרטי הספר'
+    },
 }
 
 var gCurrLang = 'en';
@@ -114,7 +117,8 @@ function formatNum(num) {
 }
 
 function formatCurrency(num) {
-    return new Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' }).format(num);
+    return (gCurrLang==='he')? new Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' }).format(num):
+    new Intl.NumberFormat(gCurrLang, { style: 'currency', currency: 'USD' }).format(num);
 }
 
 function formatDate(time) {

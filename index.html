@@ -21,7 +21,7 @@
         <option value="he">עברית</option>
     </select>
 
-    
+
     <br>
     <button data-trans="add" onclick="openAddModal()" class="my-btn">add new book</button><br><br>
     <button data-trans="prev-btn" onclick="onChangePage(-1)" class="my-btn">prev</button>
@@ -40,26 +40,55 @@
             <tbody class="books"></tbody>
         </table>
     </div>
+      <div class="modal add" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" data-trans="add">Modal title</h5>
+            
+            </div>
+            <div class="modal-body">
+                <input data-trans="add-book-name" name="bookname" class="add-input" type="text" placeholder="enter book name"
+                autocomplete="off" /><br>
+            <input data-trans="add-book-price" name="bookPrice" class="add-input" type="text" placeholder="enter book price"
+                autocomplete="off" /><br>
 
-    <section class="modal add" hidden>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn my-btn" data-bs-dismiss="modal" onclick="closeAddModal()" data-trans="close">Close</button>
+              
+              <button type="button" class=" my-btn" onclick="onAddBook()" data-trans="add-book-btn">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <input data-trans="add-book-name" name="bookname" class="add-input" type="text" placeholder="enter book name"
-            autocomplete="off" /><br>
-        <input data-trans="add-book-price" name="bookPrice" class="add-input" type="text" placeholder="enter book price"
-            autocomplete="off" /><br>
-        <button data-trans="add-book-btn" class="my-btn" class="add-my-btn" onclick="onAddBook()">add</button>
+      <div class="modal details-modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" data-trans="read">Modal title</h5>
+            
+            </div>
+            <div class="modal-body">
+                <h3 data-trans="id">id<span>id</span></h3>
+                <h4 data-trans="name">name<span>name</span></h4>
+                <p data-trans="price">price<span>price</span></p>
+                <button class="my-btn" onclick="onChangeRate(1)">-</button>
+                <input name="bookname" class="rate-input" type="text" placeholder="0" autocomplete="off" />
+                <button class="my-btn" onclick="onChangeRate(1)">+</button><br>
+                <!-- <button data-trans="close" class="my-btn" onclick="onCloseModal()">Close</button> -->
 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="my-btn" data-bs-dismiss="modal" onclick="onCloseModal()" data-trans="close">Close</button>
+              
 
-    </section>
-    <section class="modal details-modal" hidden>
-        <h3 data-trans="id">id<span>id</span></h3>
-        <h4 data-trans="name">name<span>name</span></h4>
-        <p data-trans="price">price<span>price</span></p>
-        <button class="my-btn" onclick="onChangeRate(1)">-</button>
-        <input name="bookname" class="rate-input" type="text" placeholder="0" autocomplete="off" />
-        <button class="my-btn" onclick="onChangeRate(1)">+</button><br>
-        <button data-trans="close" class="my-btn" onclick="onCloseModal()">Close</button>
-    </section>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
     <script src="js/util-service.js"></script>
     <script src="js/storage-service.js"></script>

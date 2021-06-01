@@ -51,7 +51,7 @@ h1{
     /* font-weight: bolder; */
     font-size: large;
 }
-.modal {
+.my-modal {
     background-color: lightgray;
     padding: 10px;
     position: absolute;
@@ -64,23 +64,19 @@ h1{
     border-radius: 20px;
     transition: 3s;
 }
-.add{
-   background-color: teal;
-   transition: 3s;
-   
-}
+
 .details-modal{
-    background-color: teal;
-    color: white;
+    background-color: transparent;
+  /*   color: white; */
     transition: 3s;
     
 }
 .add-input{
-    margin: 10px;
+    /* margin: 10px; */
     height:30px;
     width: 250px;
-    margin-top: 10%;
-    margin-bottom: 10%;
+    /* margin-top: 10%; */
+    margin-bottom:2%;
     font-family: Ink Free;
     /* font-weight: bolder; */
     font-size: large;
