@@ -104,7 +104,7 @@ function onChangeRate(count) {
     var currRate = changeRate(elBookId.id, count);
     elInput.value = currRate
     renderBooks()
-    doTrans();
+    
 }
 
 function onChangePage(diff) { //diff

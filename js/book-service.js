@@ -40,16 +40,15 @@ function updateBook(bookId, newPrice) {
 
 function changeRate(bookId, count) {
     var bookIdx = getBookById(bookId);
-    if (bookIdx.rate >= 10) return 10;
     bookIdx.rate += count;
-
-
+    if (bookIdx.rate > 10) bookIdx.rate = 0;
+    else if (bookIdx.rate < 0) bookIdx.rate = 10;
     saveToStorage(STORAGE_KEY, gBooks);
     return bookIdx.rate;
 }
 
 function getBooks() {
-    console.log({ gSortedBy });
+
     if (gSortedBy === 'name') {
         gBooks.sort(function (a, b) {
 
@@ -62,30 +61,30 @@ function getBooks() {
             return (a.price - b.price)
         });
     }
- 
-    var startIdx = gPageIdx*PAGE_SIZE;
-    return gBooks.slice(startIdx,startIdx+PAGE_SIZE)
+
+    var startIdx = gPageIdx * PAGE_SIZE;
+    return gBooks.slice(startIdx, startIdx + PAGE_SIZE)
 }
 
 function changeSort(sortBy) {
     gSortedBy = sortBy;
 }
-function changePage(diff){
-  
-    if (diff>0&&(PAGE_SIZE)*(gPageIdx+1)>=gBooks.length) return;
-    if (diff<0&&(PAGE_SIZE)*(gPageIdx-1)<0) return;
-    gPageIdx+=diff;
-    
-   
+function changePage(diff) {
+
+    if (diff > 0 && (PAGE_SIZE) * (gPageIdx + 1) >= gBooks.length) return;
+    if (diff < 0 && (PAGE_SIZE) * (gPageIdx - 1) < 0) return;
+    gPageIdx += diff;
+
+
 }
 function _createBooks() {
     var books = loadFromStorage(STORAGE_KEY)
 
     if (!books || !books.length) {
-        gBooksName =  ['harry poter', 'little women', 'jane eyne', 'les misérables', 'the secret garden', 'the world according to garp', 'the book thief', 'sinderela', 'gmara', 'bibble'];
-  
+        gBooksName = ['harry poter', 'little women', 'jane eyne', 'les misérables', 'the secret garden', 'the world according to garp', 'the book thief', 'sinderela', 'gmara', 'bibble'];
+
         books = gBooksName.map(function (name) {
-          return  _createBook(name, getRandomIntInclusive(0, 100))
+            return _createBook(name, getRandomIntInclusive(0, 100))
         })
 
         saveToStorage(STORAGE_KEY, books);
