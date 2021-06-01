@@ -47,6 +47,7 @@ function changeRate(bookId, count) {
     return bookIdx.rate;
 }
 
+
 function getBooks() {
 
     if (gSortedBy === 'name') {
