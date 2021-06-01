@@ -1,0 +1,102 @@
+body{
+    margin: auto;
+    text-align: center;
+    background-image: url('/img/back.jpg');
+    background-repeat: no-repeat;
+    font-family: Ink Free;
+    font-size: large;
+
+    
+}
+body.rtl {
+    direction: rtl;
+}
+h1{
+    color: teal;
+    border-bottom: 4px solid teal;
+    padding: 10px;
+}
+.table{
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.9;
+ 
+    box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    
+}
+.details{
+    margin: 4px;
+    padding: 5px 15px;
+    /* border: 1px solid teal; */
+     transition: 0.3s;
+}
+.action{
+    margin: 4px;
+    padding: 5px 8px;
+
+    border-inline-start: 1px solid teal;
+}
+.my-btn{
+    margin-bottom: 5px;
+    background-color: teal;
+    opacity: 0.7;
+    color: white;
+    border: white 1px solid;
+    border-radius: 5px;
+    height: 35px;
+    transition: 0.3s;
+    font-family: Ink Free;
+    /* font-weight: bolder; */
+    font-size: large;
+}
+.modal {
+    background-color: lightgray;
+    padding: 10px;
+    position: absolute;
+    top: 25%;
+    left: 43%;
+    height: 25%;
+    min-width: 300px;
+    text-align: center;
+    opacity: 0.9;
+    border-radius: 20px;
+    transition: 3s;
+}
+.add{
+   background-color: teal;
+   transition: 3s;
+   
+}
+.details-modal{
+    background-color: teal;
+    color: white;
+    transition: 3s;
+    
+}
+.add-input{
+    margin: 10px;
+    height:30px;
+    width: 250px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    font-family: Ink Free;
+    /* font-weight: bolder; */
+    font-size: large;
+    text-align: center;
+}
+.rate-input{
+    text-align: center;
+width: 30px;
+margin-bottom: 10px;
+}
+.details:hover{
+    background-color: teal;
+    color: white;
+   
+}
+.btn:hover{
+    background-color: teal;
+    color: white;
+}
